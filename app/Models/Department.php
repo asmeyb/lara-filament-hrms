@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Department extends Model
 {
-    protected $fillable = ['name', 'description','color', 'manager_id'];
+    protected $fillable = ['name', 'description','color', 'manager_id', 'color'];
 
     public function manager(): BelongsTo
     {
