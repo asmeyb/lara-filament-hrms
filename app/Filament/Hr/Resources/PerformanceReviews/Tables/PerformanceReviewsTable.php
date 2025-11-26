@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Filament\Hr\Resources\PerformanceReviews\Tables;
+
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+
+class PerformanceReviewsTable
+{
+    public static function configure(Table $table): Table
+    {
+        return $table
+            ->columns([
+                TextColumn::make('user.name')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('reviewer.name')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('review_period')
+                    ->searchable(),
+                TextColumn::make('quantity_of_work')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('productivity')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('communication')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('teamwork')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('leadership')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('overall_rating')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+            ])
+            ->filters([
+                //
+            ])
+            ->recordActions([
+                EditAction::make(),
+            ])
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                ]),
+            ]);
+    }
+}
